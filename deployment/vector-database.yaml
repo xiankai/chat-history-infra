@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector-database
+spec:
+  selector:
+    matchLabels:
+      app: vector-database
+  template:
+    metadata:
+      labels:
+        app: vector-database
+    spec:
+      containers:
+      - name: vector-database
+        image: vector-database:latest
+        ports:
+        - containerPort: 8080
+          hostPort: 8080
